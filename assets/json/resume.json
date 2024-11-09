@@ -29,7 +29,7 @@
       "url": "https://umich.edu",
       "area": "Survey and Data Science, Scientific Computing",
       "studyType": "PhD",
-      "startDate": "2019-09-01",
+      "startDate": "2021-09-01",
       "endDate": "Present",
       "courses": ["Social Media Analysis", "Computational Text Analysis"]
     },
@@ -39,6 +39,7 @@
       "url": "https://umich.edu",
       "area": "Survey and Data Science",
       "studyType": "Master of Science",
+      "startDate": "2019-09-01",
       "endDate": "2021-04-01"
     },
     {
@@ -47,6 +48,7 @@
       "url": "https://www.nju.edu.cn",
       "area": "Political Science and Administrative Science",
       "studyType": "Bachelor of Law",
+      "startDate": "2015-09-01",
       "endDate": "2019-07-01"
     }
   ],

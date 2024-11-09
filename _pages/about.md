@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: "Facts are stubborn, but statistics are more pliable." — Mark Twain
+subtitle: "Facts are stubborn, but statistics are more pliable."
 
 profile:
   align: right

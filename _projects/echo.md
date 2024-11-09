@@ -3,8 +3,8 @@ layout: page
 title: Echo Chamber Effect on Emerging Social Media Platforms
 description: Analysis of interaction patterns on platforms like Mastodon, BlueSky, and Truth Social
 importance: 3
-category: research
-related_publications: true
+category: work
+related_publications: false
 ---
 
 This project investigates the echo chamber effect across three emerging social media platforms in the “post-Twitter era”—Mastodon, BlueSky, and Truth Social. The study employs network science methods to examine the influence of ideological clustering and user interaction dynamics on opinion formation and polarization.

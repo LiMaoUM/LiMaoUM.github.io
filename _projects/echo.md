@@ -2,8 +2,7 @@
 layout: page
 title: Echo Chamber Effect on Emerging Social Media Platforms
 description: Analysis of interaction patterns on platforms like Mastodon, BlueSky, and Truth Social
-img: assets/img/echo-chamber.jpg
-importance: 2
+importance: 3
 category: research
 related_publications: true
 ---

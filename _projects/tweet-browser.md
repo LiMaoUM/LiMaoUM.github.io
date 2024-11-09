@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Twitter Browser Tool
+title: Social Media Browser
 description: An in-progress web application for summarizing Twitter data
 importance: 1
 category: work

@@ -9,17 +9,15 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Institute For Social Research</p>
+    <p>426 Thompson St.</p>
+    <p>Ann Arbor, MI 48104</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I’m Mao Li, a fourth-year PhD candidate at the University of Michigan specializing in Survey and Data Science and Scientific Computing. My research focuses on leveraging Large Language Models to analyze social media data, uncovering insights into public opinion and social trends. I’m passionate about applying computational methods to enhance traditional survey data, contributing to interdisciplinary projects spanning computer science, public health, and social science.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Fun Fact: The icon for this page—and even my GitHub profile image—is a unique, AI-generated version of my dog, Duke. He’s my trusty companion and the unofficial mascot of my work!

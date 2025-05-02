@@ -51,5 +51,5 @@ This work provides a valuable resource for researchers and policymakers, enablin
 
 ## Learn More
 
-For more information about NaNDA, visit the [official project website](https://www.icpsr.umich.edu/web/pages/ICPSR/NANDA/).
+For more information about NaNDA, visit the [official project website](https://nanda.isr.umich.edu/).
 

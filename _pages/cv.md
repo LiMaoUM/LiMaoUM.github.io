@@ -5,7 +5,7 @@ title: cv
 nav: true
 nav_order: 5
 cv_pdf: ML-CV-CON-11012024.pdf
-description: My professionally typeset CV in Typst format, optimized for readability and visual appeal.
+description: 
 toc:
   sidebar: left
 ---

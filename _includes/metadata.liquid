@@ -44,6 +44,23 @@
   <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
 {% endif %}
 
+<!-- Open Graph Meta Tags (for social media sharing) -->
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+<meta property="og:type" content="website">
+{% if page.thumbnail %}
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.thumbnail }}">
+{% endif %}
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.thumbnail %}
+<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.thumbnail }}">
+{% endif %}
+
 {% assign is_blog_post = false %}
 {% if page.url != '/blog/index.html' and page.url contains '/blog/' %}
   {% unless page.url contains '/tag/' or page.url contains '/category/' %}

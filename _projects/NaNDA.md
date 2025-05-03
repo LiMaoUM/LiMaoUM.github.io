@@ -13,7 +13,7 @@ The National Neighborhood Data Archive (NaNDA) is a comprehensive data repositor
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/prof_pic.jpg" title="NaNDA Data Visualization" class="img-fluid rounded z-depth-1" %}
+        <img src="{{ '/assets/img/prof_pic.jpg' | relative_url }}" alt="NaNDA Data Visualization" class="img-fluid rounded z-depth-1" loading="lazy" />
     </div>
 </div>
 <div class="caption">

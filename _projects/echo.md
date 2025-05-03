@@ -11,7 +11,7 @@ This project investigates the echo chamber effect across three emerging social m
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/echo-graph-2.png" title="Influence Mapping" class="img-fluid rounded z-depth-1" %}
+        <img src="{{ '/assets/img/echo-graph-2.png' | relative_url }}" alt="Influence Mapping" class="img-fluid rounded z-depth-1" loading="lazy" />
     </div>
 </div>
 <div class="caption">
@@ -20,7 +20,7 @@ This project investigates the echo chamber effect across three emerging social m
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/echo-graph-3.png" title="Community Detection" class="img-fluid rounded z-depth-1" %}
+        <img src="{{ '/assets/img/echo-graph-3.png' | relative_url }}" alt="Community Detection" class="img-fluid rounded z-depth-1" loading="lazy" />
     </div>
 </div>
 <div class="caption">
@@ -34,7 +34,7 @@ Our methodology includes:
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/echo-graph-1.jpg" title="Echo Chamber Simulation" class="img-fluid rounded z-depth-1" %}
+        <img src="{{ '/assets/img/echo-graph-1.png' | relative_url }}" alt="Echo Chamber Simulation" class="img-fluid rounded z-depth-1" loading="lazy" />
     </div>
 </div>
 <div class="caption">

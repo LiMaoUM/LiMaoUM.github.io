@@ -1,69 +1,54 @@
 {
-  "viewBox": [0, 0, 860, 700],
-  "meta": {
-    "note": "Curated public view of the research program. Hand-authored by Mao Li; not auto-generated. Unpublished work appears as unlabeled 'in progress' nodes so momentum shows without disclosing results."
-  },
-  "threads": {
-    "t1": { "label": "Digital twins", "color": "var(--t1)" },
-    "t2": { "label": "Simulation validity", "color": "var(--t2)" },
-    "t3": { "label": "Representativeness", "color": "var(--t3)" },
-    "t4": { "label": "LLM instruments", "color": "var(--t4)" },
-    "t5": { "label": "Text structuring", "color": "var(--t5)" }
-  },
-  "nodes": [
-    { "id": "center", "kind": "center", "x": 430, "y": 310,
-      "label": "Can language models stand in for people", "sub": "in social measurement?" },
-
-    { "id": "t1", "kind": "thread", "thread": "t1", "x": 430, "y": 96, "label": "Digital twins of respondents" },
-    { "id": "t2", "kind": "thread", "thread": "t2", "x": 726, "y": 214, "label": "Validity of social simulation" },
-    { "id": "t3", "kind": "thread", "thread": "t3", "x": 660, "y": 512, "label": "Who social media speaks for" },
-    { "id": "t4", "kind": "thread", "thread": "t4", "x": 196, "y": 512, "label": "LLMs as survey instruments" },
-    { "id": "t5", "kind": "thread", "thread": "t5", "x": 132, "y": 214, "label": "Structuring text at scale" },
-
-    { "id": "p_census", "kind": "paper", "thread": "t3", "status": "published", "x": 792, "y": 452,
-      "label": "Tracking Census self-completion", "sub": "SSCR · 2024",
-      "href": "https://doi.org/10.1177/08944393241268461" },
-    { "id": "p_stance", "kind": "paper", "thread": "t3", "status": "preprint", "x": 736, "y": 592,
-      "label": "Stance annotation: LLMs vs. crowds", "sub": "preprint · 2024",
-      "href": "https://arxiv.org/abs/2406.07483" },
-    { "id": "p_lexrank", "kind": "paper", "thread": "t5", "status": "preprint", "x": 96, "y": 320,
-      "label": "FastLexRank", "sub": "preprint · 2024",
-      "href": "https://arxiv.org/abs/2410.01183" },
-
-    { "id": "p_persona", "kind": "paper", "thread": "t2", "status": "preprint", "x": 802, "y": 150,
-      "label": "Persona-Based Simulation", "sub": "SPIRIT · preprint 2026",
-      "href": "https://arxiv.org/abs/2603.27056" },
-    { "id": "p_echo", "kind": "paper", "thread": "t3", "status": "published", "x": 600, "y": 656,
-      "label": "Who Talks to Whom", "sub": "ICWSM · 2026",
-      "href": "https://doi.org/10.1609/icwsm.v20i1.42705" },
-
-    { "id": "ip_persona", "kind": "progress", "thread": "t1", "x": 300, "y": 60 },
-    { "id": "ip_twin", "kind": "progress", "thread": "t1", "x": 560, "y": 60 },
-    { "id": "ip_mech", "kind": "progress", "thread": "t1", "x": 470, "y": 178 },
-    { "id": "ip_interview", "kind": "progress", "thread": "t4", "x": 120, "y": 592 },
-    { "id": "ip_coding", "kind": "progress", "thread": "t4", "x": 256, "y": 604 }
-  ],
-  "edges": [
-    { "from": "center", "to": "t1", "type": "derivation" },
-    { "from": "center", "to": "t2", "type": "derivation" },
-    { "from": "center", "to": "t3", "type": "derivation" },
-    { "from": "center", "to": "t4", "type": "derivation" },
-    { "from": "center", "to": "t5", "type": "derivation" },
-
-    { "from": "t1", "to": "ip_persona", "type": "derivation" },
-    { "from": "t1", "to": "ip_twin", "type": "derivation" },
-    { "from": "t1", "to": "ip_mech", "type": "mechanism" },
-    { "from": "t2", "to": "p_persona", "type": "derivation" },
-    { "from": "t3", "to": "p_census", "type": "derivation" },
-    { "from": "t3", "to": "p_stance", "type": "derivation" },
-    { "from": "t3", "to": "p_echo", "type": "derivation" },
-    { "from": "t4", "to": "ip_interview", "type": "derivation" },
-    { "from": "t4", "to": "ip_coding", "type": "derivation" },
-    { "from": "t5", "to": "p_lexrank", "type": "derivation" },
-
-    { "from": "t1", "to": "t2", "type": "mechanism" },
-    { "from": "t3", "to": "t4", "type": "instrument" },
-    { "from": "p_stance", "to": "t4", "type": "instrument" },
-    { "from": "t1", "to": "t3", "type": "inverse" }
+  "note": "Curated public view of the research program, rendered as bold thread bands by bin/build_network.py. Hand-authored by Mao Li; not auto-generated from the private map. Unpublished work is summarized as an 'N in progress' chip so momentum shows without disclosing results.",
+  "question": "Can language models stand in for people in social measurement?",
+  "threads": [
+    {
+      "num": "I",
+      "name": "Digital twins of respondents",
+      "color": "#2a78d6",
+      "blurb": "Can a persona-conditioned model reproduce a specific person's survey answers? Where it succeeds, it is a measurement tool; where it fails, the failure itself is the finding.",
+      "papers": [],
+      "in_progress": 3
+    },
+    {
+      "num": "II",
+      "name": "Validity of social simulation",
+      "color": "#1baf7a",
+      "blurb": "The same question at population scale: do societies of language-model agents reproduce social processes, or only their outcomes? Outcome fidelity can conceal process failure.",
+      "papers": [
+        { "title": "Persona-Based Simulation of Human Opinion at Population Scale", "meta": "SPIRIT · preprint 2026", "href": "https://arxiv.org/abs/2603.27056" }
+      ],
+      "in_progress": 0
+    },
+    {
+      "num": "III",
+      "name": "Who social media speaks for",
+      "color": "#4a3aa7",
+      "blurb": "My dissertation. Inferring demographics and stance from social-media text, and asking whom that expression actually represents.",
+      "papers": [
+        { "title": "Tracking Census self-completion", "meta": "SSCR · 2024", "href": "https://doi.org/10.1177/08944393241268461" },
+        { "title": "Stance annotation: LLMs vs. crowds", "meta": "preprint · 2024", "href": "https://arxiv.org/abs/2406.07483" },
+        { "title": "Who Talks to Whom", "meta": "ICWSM · 2026", "href": "https://doi.org/10.1609/icwsm.v20i1.42705" }
+      ],
+      "in_progress": 0
+    },
+    {
+      "num": "IV",
+      "name": "LLMs as survey instruments",
+      "color": "#eb6834",
+      "blurb": "Turning the method into tools: AI interviewers and model-assisted coding of open-ended responses, built and evaluated as survey instruments in their own right.",
+      "papers": [],
+      "in_progress": 2
+    },
+    {
+      "num": "V",
+      "name": "Structuring text at scale",
+      "color": "#e87ba4",
+      "blurb": "The infrastructure the other threads lean on: efficient ranking and embedding-space summarization for large corpora of posts.",
+      "papers": [
+        { "title": "FastLexRank", "meta": "preprint · 2024", "href": "https://arxiv.org/abs/2410.01183" }
+      ],
+      "in_progress": 0
+    }
   ]
 }

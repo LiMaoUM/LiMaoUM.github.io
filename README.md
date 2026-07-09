@@ -7,24 +7,23 @@ served by GitHub Pages (`.nojekyll` disables Jekyll processing).
 
 ```
 index.html        Home: thesis, research threads, selected papers
-research.html     Research program as an interactive network figure
+research.html     Research program as bold thread bands
 papers.html       Full publication list
 404.html
 assets/css/site.css    the whole visual system ("Offprint")
-assets/js/network.js   progressive enhancement for the network (hover, drag, explore)
-assets/data/research.json   hand-curated network data (single source of truth)
+assets/data/research.json   hand-curated research-program data (single source of truth)
 _bibliography/papers.bib    publication source
 bin/build_papers.py    render papers.bib -> papers.html + home selected list
-bin/build_network.py   render research.json -> inline SVG in research.html
+bin/build_network.py   render research.json -> thread bands in research.html
 ```
 
 ## Editing
 
 - **Add a paper:** edit `_bibliography/papers.bib`, then `uv run bin/build_papers.py`.
   Mark up to a few entries `selected = {true}` to feature them on the home page.
-- **Change the research network:** edit `assets/data/research.json`, then
-  `uv run bin/build_network.py`. The committed SVG is a complete figure with
-  JavaScript disabled; the JS only adds interaction.
+- **Change the research program:** edit `assets/data/research.json` (threads,
+  their papers, and an in-progress count), then `uv run bin/build_network.py`.
+  It regenerates the thread bands. Static HTML, no JavaScript.
 
 Both scripts rewrite content between `<!-- BEGIN ... -->` / `<!-- END ... -->`
 markers in the HTML. Commit the regenerated HTML.

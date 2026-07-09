@@ -28,6 +28,7 @@ VENUE_ABBR = {
     "Journal of Aging and Health": "J. Aging &amp; Health",
     "Wellbeing, space and society": "Wellbeing, Space &amp; Society",
     "BMC public health": "BMC Public Health",
+    "Proceedings of the International AAAI Conference on Web and Social Media (ICWSM)": "Proc. ICWSM",
 }
 
 

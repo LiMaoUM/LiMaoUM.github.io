@@ -8,7 +8,11 @@
       "color": "#2a78d6",
       "blurb": "Can a persona-conditioned model reproduce a specific person's survey answers? Where it succeeds, it is a measurement tool; where it fails, the failure itself is the finding.",
       "papers": [],
-      "in_progress": 3
+      "wip": [
+        { "title": "Opinion change in twins", "desc": "Do persona twins shift their views like the people they model?" },
+        { "title": "What conditioning encodes", "desc": "Probing which persona attributes the model actually represents internally." },
+        { "title": "Detecting synthetic respondents", "desc": "Telling model-generated survey answers apart from human ones." }
+      ]
     },
     {
       "num": "II",
@@ -38,7 +42,10 @@
       "color": "#eb6834",
       "blurb": "Turning the method into tools: AI interviewers and model-assisted coding of open-ended responses, built and evaluated as survey instruments in their own right.",
       "papers": [],
-      "in_progress": 2
+      "wip": [
+        { "title": "Evaluating AI interviewers", "desc": "A testbed and metrics for machine-administered survey interviews." },
+        { "title": "LLM-assisted response coding", "desc": "Model coding of open-ended answers, validated against human coders." }
+      ]
     },
     {
       "num": "V",

@@ -37,12 +37,14 @@ def chip(p: dict, color: str) -> str:
     return f'<div class="rp-chip" style="{style}">{inner}</div>'
 
 
+def wip_chip(w: dict) -> str:
+    desc = f'<span>{esc(w["desc"])}</span>' if w.get("desc") else ""
+    return f'<div class="rp-chip wip"><b>{esc(w["title"])}</b>{desc}</div>'
+
+
 def band(t: dict) -> str:
     chips = "".join(chip(p, t["color"]) for p in t.get("papers", []))
-    n = t.get("in_progress", 0)
-    if n:
-        label = f'{n} in progress' if n > 1 else '1 in progress'
-        chips += f'<div class="rp-chip prog">{label}</div>'
+    chips += "".join(wip_chip(w) for w in t.get("wip", []))
     if not chips:
         chips = '<div class="rp-chip prog">early</div>'
     return (
@@ -79,7 +81,7 @@ def main():
     data = json.loads(DATA.read_text())
     PAGE.write_text(inject(PAGE.read_text(), build_html(data)))
     n_pub = sum(len(t.get("papers", [])) for t in data["threads"])
-    n_prog = sum(t.get("in_progress", 0) for t in data["threads"])
+    n_prog = sum(len(t.get("wip", [])) for t in data["threads"])
     print(f"bands: {len(data['threads'])} threads, {n_pub} papers, {n_prog} in progress -> research.html")
 
 

@@ -22,11 +22,12 @@ You are Stage 2 (Distill) of the notes pipeline; spec at `docs/superpowers/specs
 
    Prose standard: light Fred discipline. No defensive hedging, no overclaiming, no en or em dashes anywhere. Keep Mao's conversational voice; notes are notes, not papers, so do not over-formalize. Never quote raw journal text verbatim into a public note without cleaning it.
 
-   **Note anatomy (Mao, 2026-07-18; every note must have all four, in whatever prose shape fits):**
-   1. **The punch.** One precisely stated lesson. A claim, not a topic, not "food for thought," not an observation list.
-   2. **The vivid case.** The concrete moment the lesson came from, told so the reader sees it happen (the numbers, the flip, the moment the meaning changed).
-   3. **The roadmap.** How the case forces the lesson: the reasoning chain from evidence to conclusion, including why the obvious alternative reading fails.
-   4. **The reach.** Where else the lesson applies: two or three scenarios beyond the origin case. Generalization is the reason the blog exists; a note that cannot travel is not ready.
+   **The story standard (Mao, 2026-07-18; model: Lilian Weng's long-form posts, e.g. "The Transformer Family v2"). A note is a story driven by one question, never a list of lessons or observations ("tedious information"):**
+   1. **Open with the ambitious question**, one the field circles but rarely asks head-on, or asks wrong.
+   2. **Survey what people actually do about it**, concretely and respectfully, and name the question their work leaves unasked. That gap is the entry point.
+   3. **Build the answer progressively.** Each piece of machinery is introduced by the problem that motivates it (motivation before solution); intuition and a vivid case come before any formalism; sections build on each other like a funnel from broad to deep.
+   4. **A general reader must feel why it matters** before anything technical appears. If the reader needs the field's vocabulary to care, the opening has failed.
+   5. **Form follows Weng:** table of contents for long pieces, descriptive section headers, figures that show what prose asserts (roughly one per major beat), inline citations with a references list, consistent terminology throughout.
 
-   A candidate thread that cannot fill all four slots goes back in the drawer.
+   Precision still matters inside the story: every section should leave the reader holding one exactly-stated idea. But the story is the organizing frame; a precisely stated lesson without the journey that forces it is not a note.
 5. **Stop for approval.** Show Mao the full draft. Do NOT run `bin/build_notes.py`, do NOT commit, do NOT push. Building and publishing happen only after Mao approves, and merging/pushing `main` is the go-live step he controls.

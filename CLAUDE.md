@@ -2,6 +2,8 @@
 
 Mao Li's public website: a custom static "Offprint" site (plain HTML + one shared CSS, no framework, no Jekyll). **`main` is live via GitHub Pages; merging or pushing to `main` publishes immediately.** Work on a branch; Mao approves before merge.
 
+**Check GitHub first.** Mao edits this repo from two machines; `git pull` at session start and `git fetch` before any push (rebase local commits if behind). A 2026-07-18 push was rejected because a Windows-side CV update was already on the remote.
+
 ## Design authority and cross-links
 
 - Site design spec: `~/maospace/notes/designs/website-redesign-offprint-design.md` (visual system, site map, content rules, deployment plan).

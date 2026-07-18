@@ -19,6 +19,7 @@ Mao Li's public website: a custom static "Offprint" site (plain HTML + one share
 ## Content rules (from the design spec; Mao enforces)
 
 - Only public or preprinted work appears; no unpublished claims or numbers. Mao approves every public wording change before merge.
+- Every content page and note follows the punch / vivid case / roadmap / reach anatomy (Mao, 2026-07-18): one precisely stated lesson, the concrete moment it came from, the reasoning chain that forces it, and where it generalizes. No observation lists.
 - No en or em dashes anywhere in prose.
 - Maize highlight appears exactly once per page; no external requests (no webfonts, no CDNs); zero JS except where the spec allows it.
 - `google1ULAAq...html` (Search Console) and `robots.txt` must survive any restructuring.

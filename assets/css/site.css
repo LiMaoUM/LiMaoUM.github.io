@@ -192,6 +192,37 @@ a.rp-chip:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(28,26
 .thread-notes .tn .lbl .tc { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 7px; }
 .thread-notes .tn p { margin: 0; font-size: 16px; color: var(--ink-2); }
 
+/* ---------- notes ---------- */
+.note-date {
+  font-family: var(--sans); font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted);
+  display: block;
+}
+.pub .note-title { font-size: 18.5px; font-weight: 600; }
+.pub .note-sum { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--ink-2); display: block; margin-top: 2px; }
+
+article.note { padding: 6px 0 0; }
+article.note h1 {
+  font-size: clamp(27px, 4vw, 34px); line-height: 1.22;
+  font-weight: 600; letter-spacing: -0.011em; margin: 4px 0 8px; text-wrap: balance;
+}
+article.note > .note-date { margin-bottom: 30px; }
+article.note h2 { font-size: 21px; font-weight: 600; margin: 32px 0 8px; }
+article.note h3 { font-size: 18px; font-weight: 600; margin: 24px 0 6px; }
+article.note p, article.note li { max-width: 68ch; }
+article.note blockquote {
+  margin: 18px 0; padding: 2px 18px;
+  border-left: 3px solid var(--rule); color: var(--ink-2);
+}
+article.note code { font-family: var(--mono); font-size: 0.86em; background: var(--rule-soft); padding: 1px 5px; border-radius: 3px; }
+article.note pre { background: var(--card); border: 1px solid var(--rule-soft); border-radius: 6px; padding: 14px 16px; overflow-x: auto; }
+article.note pre code { background: none; padding: 0; }
+article.note img { max-width: 100%; }
+article.note hr { border: none; border-top: 1px solid var(--rule); margin: 28px 0; }
+article.note table { border-collapse: collapse; font-size: 15.5px; }
+article.note th, article.note td { border-bottom: 1px solid var(--rule-soft); padding: 6px 14px 6px 0; text-align: left; }
+.allnotes { font-family: var(--sans); font-size: 13px; margin-top: 38px; }
+
 /* ---------- 404 ---------- */
 .notfound { text-align: center; padding: 90px 0 120px; }
 .notfound .big { font-size: 64px; font-weight: 600; margin: 0; }

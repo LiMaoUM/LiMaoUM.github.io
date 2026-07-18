@@ -27,5 +27,5 @@ Mao Li's public website: a custom static "Offprint" site (plain HTML + one share
 ## State (2026-07-18)
 
 - Live: index, research (thread bands), papers, 404, CV link. Offprint redesign merged 2026-07.
-- **Pending: dissertation page** ("The Expressed Public" food-for-thought page; full copy drafted and awaiting Mao's approval in the 2026-07-18 maospace session; build on a branch once approved, add Dissertation to nav on all pages).
+- **Pending: flagship essay** "What Can Social Media Tell Us About Public Opinion?" replaces the earlier dissertation-page plan (no dissertation.html, no Dissertation nav item). Outline approved 2026-07-18 at `docs/flagship-essay-outline.md`; drafting starts after the defense (2026-07-24); publishes as the first note.
 - **Notes section built 2026-07-18** (branch `notes-section`, awaiting Mao's merge): `/distill` command, `bin/build_notes.py` (PEP 723, `markdown` dep, smarty off), `_notes/` source dir, `notes.html` index, Notes in the nav on all pages, note CSS. Empty state ships until the first note graduates. Stage 1 is live on the maospace side: `/think` writes `~/maospace/notes/journal/YYYY-MM-DD.md`. Note pages regenerate with `uv run bin/build_notes.py`.

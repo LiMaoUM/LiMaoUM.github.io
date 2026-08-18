@@ -78,8 +78,13 @@ def inject(page_text: str, html: str) -> str:
 
 
 def main():
-    data = json.loads(DATA.read_text())
-    PAGE.write_text(inject(PAGE.read_text(), build_html(data)))
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    # UTF-8 named explicitly for the same reason as build_papers.py: the default
+# is cp1252 on the Windows desktop, and this splices into a page served as
+# charset=utf-8. This generator emits no non-ASCII of its own today, but it
+# rewrites a whole page that does.
+    PAGE.write_text(inject(PAGE.read_text(encoding="utf-8"), build_html(data)),
+                    encoding="utf-8")
     n_pub = sum(len(t.get("papers", [])) for t in data["threads"])
     n_prog = sum(len(t.get("wip", [])) for t in data["threads"])
     print(f"bands: {len(data['threads'])} threads, {n_pub} papers, {n_prog} in progress -> research.html")

@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Mao Li",
-    "label": "PhD Candidate in Survey and Data Science",
+    "label": "Postdoctoral Fellow, Survey and Data Science",
     "image": "",
     "email": "maolee@umich.edu",
     "phone": "(734) 882-9041",
@@ -30,7 +30,7 @@
       "area": "Survey and Data Science, Scientific Computing",
       "studyType": "PhD",
       "startDate": "2021-09-01",
-      "endDate": "Present",
+      "endDate": "2026-08-01",
       "courses": ["Social Media Analysis", "Computational Text Analysis"]
     },
     {

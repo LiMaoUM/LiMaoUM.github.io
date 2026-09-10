@@ -29,6 +29,7 @@ VENUE_ABBR = {
     "Wellbeing, space and society": "Wellbeing, Space &amp; Society",
     "BMC public health": "BMC Public Health",
     "Proceedings of the International AAAI Conference on Web and Social Media (ICWSM)": "Proc. ICWSM",
+    "Journal of Survey Statistics and Methodology": "J. Survey Statistics &amp; Methodology",
 }
 
 

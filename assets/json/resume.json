@@ -31,7 +31,10 @@
       "studyType": "PhD",
       "startDate": "2021-09-01",
       "endDate": "2026-08-01",
-      "courses": ["Social Media Analysis", "Computational Text Analysis"]
+      "courses": [
+        "Social Media Analysis",
+        "Computational Text Analysis"
+      ]
     },
     {
       "institution": "University of Michigan, Ann Arbor, MI",
@@ -55,9 +58,17 @@
   "work": [
     {
       "name": "Institute for Social Research, University of Michigan",
+      "location": "Ann Arbor, MI, USA",
+      "position": "Postdoctoral Fellow",
+      "startDate": "2026-09-01",
+      "endDate": "Present",
+      "summary": "Postdoctoral research on AI-mediated survey measurement, including virtual interviewers, with Frederick G. Conrad."
+    },
+    {
+      "name": "Institute for Social Research, University of Michigan",
       "position": "Graduate Student Research Assistant",
       "startDate": "2021-09-01",
-      "endDate": "Present",
+      "endDate": "2026-08-01",
       "summary": "Leading research on social media analysis for Census Bureau data enhancement, focusing on text summarization and stance detection.",
       "highlights": [
         "Developed Twitter browser tool as a digital focus group for public opinion analysis",
@@ -109,12 +120,24 @@
     {
       "name": "Programming and Data Analysis",
       "level": "Advanced",
-      "keywords": ["Python", "R", "C++", "Spark", "Hadoop", "ArcGIS", "MySQL"]
+      "keywords": [
+        "Python",
+        "R",
+        "C++",
+        "Spark",
+        "Hadoop",
+        "ArcGIS",
+        "MySQL"
+      ]
     },
     {
       "name": "Data Collection Methods",
       "level": "Proficient",
-      "keywords": ["Survey Design", "Interviews", "Web Scraping"]
+      "keywords": [
+        "Survey Design",
+        "Interviews",
+        "Web Scraping"
+      ]
     }
   ],
   "languages": [

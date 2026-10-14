@@ -5,47 +5,59 @@
 # ///
 """Render _notes/*.md into notes/<slug>.html pages and the notes.html index list.
 
-Source format (frontmatter is exactly three fields, all required):
+Source of truth: _notes/*.md, each with frontmatter (title, date, summary) and a
+markdown body. Follows the site convention: a build script renders sources into
+HTML between BEGIN/END markers, matching bin/build_papers.py and bin/build_network.py.
 
-    ---
-    title: The failure is the finding
-    date: 2026-07-09
-    summary: One line, used for the index card and the OG description.
-    ---
-    Markdown body...
-
-Slug = source filename stem. Stale notes/*.html whose source is gone are pruned.
-Smart-dash conversion stays OFF (no smarty extension): `--` must never become
-an en/em dash. Footnotes and tables are on.
-
-Run:  uv run bin/build_notes.py
+Smart-dash conversion is OFF so '--' is never turned into an en/em dash (Mao's
+no-dash rule). Run:  uv run bin/build_notes.py
 """
-import datetime
 import html
 import re
-import sys
 from pathlib import Path
 
 import markdown
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "_notes"
-OUT = ROOT / "notes"
+NOTES_SRC = ROOT / "_notes"
+NOTES_DIR = ROOT / "notes"
 INDEX = ROOT / "notes.html"
-SITE = "https://limaoum.github.io"
+
+MD = markdown.Markdown(extensions=["footnotes", "tables"], output_format="html5")
+
+
+def parse_note(path):
+    text = path.read_text(encoding="utf-8")
+    m = re.match(r"^---\n(.*?)\n---\n(.*)$", text, re.DOTALL)
+    if not m:
+        raise SystemExit(f"{path.name}: missing frontmatter")
+    meta = {}
+    for line in m.group(1).splitlines():
+        if ":" in line:
+            k, v = line.split(":", 1)
+            meta[k.strip()] = v.strip()
+    for req in ("title", "date", "summary"):
+        if req not in meta:
+            raise SystemExit(f"{path.name}: frontmatter missing '{req}'")
+    MD.reset()
+    meta["_slug"] = path.stem
+    meta["_body_html"] = MD.convert(m.group(2))
+    return meta
+
 
 PAGE = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>%(title)s — Mao Li</title>
-<meta name="description" content="%(summary)s">
-<link rel="canonical" href="%(site)s/notes/%(slug)s.html">
+<title>{title} — Mao Li</title>
+<meta name="description" content="{summary}">
+<link rel="canonical" href="https://limaoum.github.io/notes/{slug}.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="%(title)s">
-<meta property="og:description" content="%(summary)s">
-<meta property="og:url" content="%(site)s/notes/%(slug)s.html">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{summary}">
+<meta property="og:url" content="https://limaoum.github.io/notes/{slug}.html">
+<meta property="article:published_time" content="{date}">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="../assets/img/favicon-32x32.jpg">
 <link rel="stylesheet" href="../assets/css/site.css">
@@ -65,16 +77,17 @@ PAGE = """<!doctype html>
   </header>
 
   <article class="note">
-    <p class="eyebrow">Notes</p>
-    <h1>%(title)s</h1>
-    <span class="note-date">%(datestr)s</span>
-%(body)s
-    <p class="allnotes"><a href="../notes.html">&larr; All notes</a></p>
+    <header class="note-head">
+      <p class="eyebrow">Notes</p>
+      <h1>{title}</h1>
+      <p class="note-date">{date_human}</p>
+    </header>
+    {body}
   </article>
 
   <footer class="site">
     <span>&copy; Mao Li · Ann Arbor, Michigan · maolee@umich.edu</span>
-    <span class="duke">Favicon &amp; morale officer: Duke, AI-rendered.</span>
+    <span class="duke"><a href="../notes.html">All notes &rarr;</a></span>
   </footer>
 
 </div>
@@ -82,91 +95,54 @@ PAGE = """<!doctype html>
 </html>
 """
 
-
-def parse_note(path):
-    text = path.read_text()
-    m = re.match(r"\A---\s*\n(.*?)\n---\s*\n(.*)\Z", text, re.DOTALL)
-    if not m:
-        sys.exit("%s: missing frontmatter block" % path.name)
-    meta = {}
-    for line in m.group(1).splitlines():
-        if ":" in line:
-            k, v = line.split(":", 1)
-            meta[k.strip().lower()] = v.strip()
-    missing = [k for k in ("title", "date", "summary") if not meta.get(k)]
-    if missing:
-        sys.exit("%s: frontmatter missing %s" % (path.name, ", ".join(missing)))
-    try:
-        meta["_date"] = datetime.date.fromisoformat(meta["date"])
-    except ValueError:
-        sys.exit("%s: date must be YYYY-MM-DD, got %r" % (path.name, meta["date"]))
-    meta["_slug"] = path.stem
-    meta["_body"] = m.group(2).strip()
-    return meta
+MONTHS = ["", "January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
 
 
-def datestr(d):
-    return "%s %d, %d" % (d.strftime("%B"), d.day, d.year)
-
-
-def render_page(n):
-    body = markdown.markdown(n["_body"], extensions=["footnotes", "tables"])
-    return PAGE % {
-        "title": html.escape(n["title"]),
-        "summary": html.escape(n["summary"]),
-        "slug": n["_slug"],
-        "site": SITE,
-        "datestr": datestr(n["_date"]),
-        "body": body,
-    }
-
-
-def render_list(notes):
-    if not notes:
-        return ('  <p class="subsection-note">Nothing published here yet. '
-                "Notes appear once a thought survives the editorial bar.</p>")
-    items = []
-    for n in notes:
-        items.append(
-            '    <div class="pub">\n'
-            '      <span class="note-date">%s</span>\n'
-            '      <a class="note-title" href="notes/%s.html">%s</a>\n'
-            '      <span class="note-sum">%s</span>\n'
-            '    </div>'
-            % (datestr(n["_date"]), n["_slug"],
-               html.escape(n["title"]), html.escape(n["summary"])))
-    return '  <div class="pubs">\n%s\n  </div>' % "\n".join(items)
+def human_date(iso):
+    y, m, d = iso.split("-")
+    return f"{MONTHS[int(m)]} {int(d)}, {y}"
 
 
 def inject(path, tag, inner):
-    begin = "<!-- BEGIN %s (generated by bin/build_notes.py) -->" % tag
-    end = "<!-- END %s (generated by bin/build_notes.py) -->" % tag
-    txt = path.read_text()
+    begin = f"<!-- BEGIN {tag} (generated by bin/build_notes.py) -->"
+    end = f"<!-- END {tag} (generated by bin/build_notes.py) -->"
+    txt = path.read_text(encoding="utf-8")
     pat = re.compile(re.escape(begin) + r".*?" + re.escape(end), re.DOTALL)
     if not pat.search(txt):
-        raise SystemExit("markers for '%s' not found in %s" % (tag, path.name))
-    path.write_text(pat.sub("%s\n%s\n  %s" % (begin, inner, end), txt))
+        raise SystemExit(f"markers for '{tag}' not found in {path.name}")
+    path.write_text(pat.sub(f"{begin}\n{inner}\n  {end}", txt), encoding="utf-8")
 
 
 def main():
-    OUT.mkdir(exist_ok=True)
-    sources = [p for p in sorted(SRC.glob("*.md")) if p.name.lower() != "readme.md"]
-    notes = [parse_note(p) for p in sources]
-    notes.sort(key=lambda n: (n["_date"], n["_slug"]), reverse=True)
+    notes = [parse_note(p) for p in sorted(NOTES_SRC.glob("*.md"))]
+    notes.sort(key=lambda n: n["date"], reverse=True)
 
-    live = set()
+    NOTES_DIR.mkdir(exist_ok=True)
     for n in notes:
-        out = OUT / ("%s.html" % n["_slug"])
-        out.write_text(render_page(n))
-        live.add(out.name)
-    pruned = 0
-    for stale in OUT.glob("*.html"):
-        if stale.name not in live:
-            stale.unlink()
-            pruned += 1
+        page = PAGE.format(
+            title=html.escape(n["title"]),
+            summary=html.escape(n["summary"]),
+            slug=n["_slug"],
+            date=n["date"],
+            date_human=human_date(n["date"]),
+            body=n["_body_html"],
+        )
+        (NOTES_DIR / f"{n['_slug']}.html").write_text(page, encoding="utf-8")
 
-    inject(INDEX, "notes", render_list(notes))
-    print("notes: %d built, %d pruned, index updated" % (len(notes), pruned))
+    items = []
+    for n in notes:
+        items.append(
+            '    <a class="note-item" href="notes/%s.html">\n'
+            '      <span class="note-item-date">%s</span>\n'
+            '      <span class="note-item-title">%s</span>\n'
+            '      <span class="note-item-summary">%s</span>\n'
+            "    </a>"
+            % (n["_slug"], human_date(n["date"]),
+               html.escape(n["title"]), html.escape(n["summary"]))
+        )
+    inject(INDEX, "notes", "\n".join(items))
+    print(f"notes: {len(notes)} rendered")
 
 
 if __name__ == "__main__":

@@ -1,26 +1,39 @@
 {
   "note": "Curated public view of the research program, rendered as bold thread bands by bin/build_network.py. Hand-authored by Mao Li; not auto-generated from the private map. Unpublished work is summarized as an 'N in progress' chip so momentum shows without disclosing results.",
-  "question": "Can language models stand in for people in social measurement?",
+  "question": "Can large language models stand in for people in social measurement?",
   "threads": [
     {
       "num": "I",
       "name": "Digital twins of respondents",
       "color": "#2a78d6",
-      "blurb": "Can a persona-conditioned model reproduce a specific person's survey answers? Where it succeeds, it is a measurement tool; where it fails, the failure itself is the finding.",
+      "blurb": "Can a large language model given a person's profile reproduce that person's survey answers? Where it succeeds, it is a measurement tool. Where it fails, the failure is the finding.",
       "papers": [],
       "wip": [
-        { "title": "Opinion change in twins", "desc": "Do persona twins shift their views like the people they model?" },
-        { "title": "What conditioning encodes", "desc": "Probing which persona attributes the model actually represents internally." },
-        { "title": "Detecting synthetic respondents", "desc": "Telling model-generated survey answers apart from human ones." }
+        {
+          "title": "Opinion change in twins",
+          "desc": "Do persona twins change their views the way the people they model do?"
+        },
+        {
+          "title": "What conditioning encodes",
+          "desc": "Which parts of a persona the model actually represents internally."
+        },
+        {
+          "title": "Detecting synthetic respondents",
+          "desc": "Telling survey answers written by a model apart from human ones."
+        }
       ]
     },
     {
       "num": "II",
       "name": "Validity of social simulation",
       "color": "#1baf7a",
-      "blurb": "The same question at population scale: do societies of language-model agents reproduce social processes, or only their outcomes? Outcome fidelity can conceal process failure.",
+      "blurb": "The same question for a whole population: do agents built on large language models reproduce social processes, or only their outcomes? A simulation can match the outcome while the process behind it is wrong.",
       "papers": [
-        { "title": "Persona-Based Simulation of Human Opinion at Population Scale", "meta": "SPIRIT · preprint 2026", "href": "https://arxiv.org/abs/2603.27056" }
+        {
+          "title": "Persona-Based Simulation of Human Opinion at Population Scale",
+          "meta": "SPIRIT · preprint 2026",
+          "href": "https://arxiv.org/abs/2603.27056"
+        }
       ],
       "in_progress": 0
     },
@@ -28,32 +41,65 @@
       "num": "III",
       "name": "Who social media speaks for",
       "color": "#4a3aa7",
-      "blurb": "My dissertation. Inferring demographics and stance from social-media text, and asking whom that expression actually represents.",
+      "blurb": "My dissertation. Inferring demographics and stance from social media posts, and asking whom that expression represents.",
       "papers": [
-        { "title": "Tracking Census self-completion", "meta": "SSCR · 2024", "href": "https://doi.org/10.1177/08944393241268461" },
-        { "title": "Stance annotation: LLMs vs. crowds", "meta": "preprint · 2024", "href": "https://arxiv.org/abs/2406.07483" },
-        { "title": "Who Talks to Whom", "meta": "ICWSM · 2026", "href": "https://doi.org/10.1609/icwsm.v20i1.42705" }
+        {
+          "title": "The Expressed Public (dissertation)",
+          "meta": "Deep Blue · 2026",
+          "href": "https://doi.org/10.7302/dspace/30597"
+        },
+        {
+          "title": "Tracking Census self-completion",
+          "meta": "SSCR · 2024",
+          "href": "https://doi.org/10.1177/08944393241268461"
+        },
+        {
+          "title": "Stance annotation: LLMs vs. crowds",
+          "meta": "preprint · 2024",
+          "href": "https://arxiv.org/abs/2406.07483"
+        },
+        {
+          "title": "Who Talks to Whom",
+          "meta": "ICWSM · 2026",
+          "href": "https://doi.org/10.1609/icwsm.v20i1.42705"
+        }
       ],
       "in_progress": 0
     },
     {
       "num": "IV",
-      "name": "LLMs as survey instruments",
+      "name": "Large language models as survey instruments",
       "color": "#eb6834",
-      "blurb": "Turning the method into tools: AI interviewers and model-assisted coding of open-ended responses, built and evaluated as survey instruments in their own right.",
-      "papers": [],
+      "blurb": "AI interviewers, and coding of open-ended survey answers with large language models, built and evaluated as survey instruments.",
+      "papers": [
+        {
+          "title": "Autocoding self-rated health probes",
+          "meta": "JSSAM · 2026",
+          "href": "https://doi.org/10.1093/jssam/smaf059"
+        }
+      ],
       "wip": [
-        { "title": "Evaluating AI interviewers", "desc": "A testbed and metrics for machine-administered survey interviews." },
-        { "title": "LLM-assisted response coding", "desc": "Model coding of open-ended answers, validated against human coders." }
+        {
+          "title": "Evaluating AI interviewers",
+          "desc": "A testbed and metrics for survey interviews conducted by an AI interviewer."
+        },
+        {
+          "title": "Coding open-ended answers",
+          "desc": "Coding open-ended answers with large language models, checked against human coders."
+        }
       ]
     },
     {
       "num": "V",
       "name": "Structuring text at scale",
       "color": "#e87ba4",
-      "blurb": "The infrastructure the other threads lean on: efficient ranking and embedding-space summarization for large corpora of posts.",
+      "blurb": "Methods the other threads rely on: fast ranking and summarization of large collections of posts.",
       "papers": [
-        { "title": "FastLexRank", "meta": "preprint · 2024", "href": "https://arxiv.org/abs/2410.01183" }
+        {
+          "title": "FastLexRank",
+          "meta": "preprint · 2024",
+          "href": "https://arxiv.org/abs/2410.01183"
+        }
       ],
       "in_progress": 0
     }

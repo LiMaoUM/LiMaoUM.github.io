@@ -50,7 +50,7 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} — Mao Li</title>
+<title>{title}, Mao Li</title>
 <meta name="description" content="{summary}">
 <link rel="canonical" href="https://limaoum.github.io/notes/{slug}.html">
 <meta property="og:type" content="article">
